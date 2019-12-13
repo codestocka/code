@@ -1,6 +1,5 @@
 # code
 
 
-memomemo
-good morning
+memomemogood morning
 
