@@ -1,5 +1,3 @@
-# code
-
 Sub ExcelCompare()
      Dim i As Long
      Dim j As Long
@@ -15,8 +13,7 @@ Sub ExcelCompare()
      Next
  Next
      Sheets("comp").Select
-
- End Sub
+End Sub
 
 
 
