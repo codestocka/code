@@ -1,4 +1,7 @@
-Sub ExcelCompare()
+----
+
+ Sub ExcelCompare()
+
      Dim i As Long
      Dim j As Long
      Sheets("table").Select
@@ -12,8 +15,9 @@ Sub ExcelCompare()
         End If
      Next
  Next
-     Sheets("comp").Select
-End Sub
+Sheets("comp").Select
+
+end sub
 
 sample
 
