@@ -160,7 +160,10 @@ Sub kaiten2()
     
     'bunki-syori
     Call Bunki
-    
+    If Range(H7).Value = 1 Then
+    Exit Sub
+    End If
+   
     'left
     Range("G7").Select
     Application.Wait Now() + TimeValue("00:00:01")
