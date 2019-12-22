@@ -127,7 +127,7 @@ End Sub
 
 Sub kaiten2()
 
-    'kaiten-suru
+    'kaiten-suru  5x5
     
     MsgBox "hajimaruyo"
     
