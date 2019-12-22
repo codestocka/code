@@ -122,3 +122,161 @@ Sub OpenFile()
   Next
     
 End Sub
+
+
+
+Sub kaiten2()
+
+    'kaiten-suru
+    
+    MsgBox "hajimaruyo"
+    
+        
+    'right
+    Range("D2").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("E2").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("F2").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("G2").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H2").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    
+    'down
+    Range("H2").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H3").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H4").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H5").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H6").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    
+    'bunki-syori
+    Call Bunki
+    
+    'left
+    Range("G7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("F7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("E7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    
+    
+    'up
+    Range("D6").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D5").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D4").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D3").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D2").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+   
+            
+    MsgBox "owattayo"
+        
+          
+End Sub
+
+
+Sub Bunki()
+
+    If Range("H7") = 1 Then
+    
+   'right
+    Range("H7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("I7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("J7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("K7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("L7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    
+    'down
+    Range("L8").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("L9").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("L10").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("L11").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("L12").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+        
+    'left
+    Range("K12").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("J12").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("I12").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H12").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    
+    
+    'up
+    Range("H11").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H10").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H9").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H8").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("H7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+   
+    Else
+    End If
+    
+    Call bunki2
+    
+End Sub
+
+Sub bunki2()
+
+
+    'left
+    Range("G7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("F7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("E7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D7").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    
+    
+    'up
+    Range("D6").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D5").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D4").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D3").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+    Range("D2").Select
+    Application.Wait Now() + TimeValue("00:00:01")
+   
+            
+    MsgBox "owatta"
+       
+End Sub
+
