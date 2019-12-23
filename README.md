@@ -283,3 +283,48 @@ Sub bunki2()
        
 End Sub
 
+Sub sendmail_sample1()
+
+'---code1｜outlook
+    Dim toaddress, ccaddress, bccaddress As String  
+    Dim subject, mailBody, credit As String 
+    Dim outlookObj As Outlook.Application    
+    Dim mailItemObj As Outlook.MailItem      
+    
+'---code2｜
+    toaddress = Range("B2").Value   
+    ccaddress = Range("B3").Value   
+    bccaddress = Range("B4").Value  
+    subject = Range("B5").Value    
+    mailBody = Range("B6").Value    
+    credit = Range("B7").Value      
+
+'---code3｜
+    Set outlookObj = CreateObject("Outlook.Application")
+    Set mailItemObj = outlookObj.CreateItem(olMailItem)
+    mailItemObj.BodyFormat = 3      
+    mailItemObj.To = toaddress      
+    mailItemObj.CC = ccaddress      
+    mailItemObj.BCC = bccaddress    
+    mailItemObj.subject = subject   
+    
+'---code4｜
+    mailItemObj.Body = mailBody & vbCrLf & vbCrLf & credit   
+    
+'---code5｜
+    Dim attached As String
+    Dim myattachments As Outlook.Attachments 
+    Set myattachments = mailItemObj.Attachments
+    attached = Range("B9").Value     
+    myattachments.Add attached
+
+'---code6｜
+    'mailItemObj.Save   
+    mailItemObj.Display  
+
+'---code7｜
+    Set outlookObj = Nothing
+    et mailItemObj = Nothing
+
+End Sub
+
