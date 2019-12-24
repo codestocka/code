@@ -352,15 +352,15 @@ Public Sub CreateMailWithTable()
     Dim bodyStr As String
     
     '---  ---'
-    toStr = "[宛先のメールアドレス]"
-    ccStr = "[CCのメールアドレス]"
-    bccStr = "[BCCのメールアドレス]"
+    toStr = "[to mail address]"
+    ccStr = "[cc mail address]"
+    bccStr = "[vbb mail address]"
     
     '---  ---'
-    subjectStr = "[件名]"
+    subjectStr = "[subject]"
     
     '---  ---'
-    bodyStr = "[本文]"
+    bodyStr = "[body]"
         
     '---  ---'
     objMail.To = toStr
@@ -373,19 +373,19 @@ Public Sub CreateMailWithTable()
     objMail.Display
     
     
-    '--- Excelワークシート ---'
+    '--- Excel worksheet ---'
     Dim ws As Worksheet
-    Set ws = ThisWorkbook.Worksheets("[ワークシート名]")
+    Set ws = ThisWorkbook.Worksheets("[worksheet]")
     
-    '--- 貼り付ける表の範囲（A1:H10のような文字列） ---'
+    '--- attachment range（A1:H10） ---'
     Dim tableAddress As String
-    tableAddress = "[表のアドレス]"
+    tableAddress = "[table address]"
     
-    '--- メール本文に表を貼り付け ---'
+    '--- paste mail ---'
     Call ws.Range(tableAddress).Copy
     objMail.GetInspector().WordEditor.Windows(1).Selection.Paste
     
-    '--- メールを送付 ---'
+    '--- send mail ---'
     objMail.Send
     
 End Sub
