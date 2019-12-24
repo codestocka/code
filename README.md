@@ -328,3 +328,64 @@ Sub sendmail_sample1()
 
 End Sub
 
+http://www.fingeneersblog.com/1778/
+
+Public Sub CreateMailWithTable()
+    
+    '---  ---'
+    Dim objOutlook As Outlook.Application
+    Set objOutlook = New Outlook.Application
+    Dim objMail As Outlook.MailItem
+    Set objMail = objOutlook.CreateItem(olMailItem)
+        
+    '---  ---'
+'    Dim objOutlook As Object
+'    Set objOutlook = CreateObject("Outlook.Application")
+'    Dim objMail As Object
+'    Set objMail = objOutlook.CreateItem(0)
+        
+    '---  ---'
+    Dim toStr As String
+    Dim ccStr As String
+    Dim bccStr As String
+    Dim subjectStr As String
+    Dim bodyStr As String
+    
+    '---  ---'
+    toStr = "[宛先のメールアドレス]"
+    ccStr = "[CCのメールアドレス]"
+    bccStr = "[BCCのメールアドレス]"
+    
+    '---  ---'
+    subjectStr = "[件名]"
+    
+    '---  ---'
+    bodyStr = "[本文]"
+        
+    '---  ---'
+    objMail.To = toStr
+    objMail.CC = ccStr
+    objMail.BCC = bccStr
+    objMail.Subject = subjectStr
+    objMail.Body = bodyStr
+    
+    '---  ---'
+    objMail.Display
+    
+    
+    '--- Excelワークシート ---'
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.Worksheets("[ワークシート名]")
+    
+    '--- 貼り付ける表の範囲（A1:H10のような文字列） ---'
+    Dim tableAddress As String
+    tableAddress = "[表のアドレス]"
+    
+    '--- メール本文に表を貼り付け ---'
+    Call ws.Range(tableAddress).Copy
+    objMail.GetInspector().WordEditor.Windows(1).Selection.Paste
+    
+    '--- メールを送付 ---'
+    objMail.Send
+    
+End Sub
