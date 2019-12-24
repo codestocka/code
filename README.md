@@ -389,3 +389,54 @@ Public Sub CreateMailWithTable()
     objMail.Send
     
 End Sub
+
+
+
+Option Explicit
+
+Public Sub Sample()
+  Dim app As Object
+  Dim doc As Object 'Documentオブジェクト(Word)
+  
+  Const olMailItem = 0
+  Const olImportanceHigh = 2
+  Const olFormatRichText = 3
+  Const wdUnderlineSingle = 1
+  Const wdColorAutomatic = -16777216
+  
+  Set app = CreateObject("Outlook.Application")
+  With app.CreateItem(olMailItem)
+    .Display
+    .BodyFormat = olFormatRichText
+    .To = "aaa@com"
+    .CC = "bbb@com"
+    .Importance = olImportanceHigh
+    .Subject = "test"
+    Set doc = .GetInspector.WordEditor
+  End With
+  
+  'コピー&ペースト
+  ActiveWorkbook.Worksheets("Sheet1").Range("A1:A10").Copy
+  doc.Characters.Last.Paste
+  
+  '文字列挿入
+  With doc.Characters.Last
+    'フォント設定
+    .Font.NameFarEast = "メイリオ"
+    .Font.NameAscii = "メイリオ"
+    .Font.NameOther = "メイリオ"
+    .Font.Name = "メイリオ"
+    .Font.Size = 14
+    .Font.Color = vbRed
+    .Font.Bold = False
+    .Font.Italic = False
+    .Font.Underline = wdUnderlineSingle
+    .Font.UnderlineColor = wdColorAutomatic
+    .InsertBefore "あいうえお" & vbCr '文字列挿入
+  End With
+  
+  'コピー&ペースト
+  ActiveWorkbook.Worksheets("Sheet2").Range("A1:A10").Copy
+  doc.Characters.Last.Paste
+End Sub
+
