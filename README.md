@@ -1,3 +1,29 @@
+Sub consumption()
+
+     Dim str As String
+     Dim price As Long
+   
+    price = Range("c4").Value
+    str = tax(price)
+
+ Range("C6").Value = str
+
+ End Sub
+
+Function tax(price)
+
+     'Dim tax As Long     
+     tax = price * 0.1
+
+End Function
+
+
+
+
+
+
+
+
 ----
 
  Sub ExcelCompare()
