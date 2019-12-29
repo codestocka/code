@@ -4,11 +4,10 @@ Dim path As String
 Dim book As String
 Dim status As String
 
-
 path = Range("C10").Value
 book = Range("C11").Value
     
-    Call OpenBlanace(status)
+    Call OpenBalance(path, book, status)
     
 If status = "OK" Then
     Workbooks.Open path & book
@@ -19,13 +18,7 @@ End If
 End Sub
 
 
-Function OpenBlanace(status)
-
-Dim path As String
-Dim book As String
-
-path = Range("C10").Value
-book = Range("C11").Value
+Function OpenBalance(ByRef path As String, ByRef book As String, status)
 
 If Dir(path & book) <> "" Then
     Range("C12").Value = "OK"
@@ -37,7 +30,6 @@ End If
     status = Range("C12").Value
 
 End Function
-
 
 
 
