@@ -1,3 +1,161 @@
+Dim path1 As String
+Dim path2 As String
+
+Dim book1 As String
+Dim book2 As String
+
+Dim status1 As String
+Dim status2 As String
+
+
+Sub BalanceCheck1()
+
+path1 = Range("C3").Value
+book1 = Range("C4").Value
+path2 = Range("C7").Value
+book2 = Range("C8").Value
+    
+    Call OpenBalance1(path1, book1, status1)
+    Call OpenBalance2(path2, book2, status2)
+            
+    Dim done As String
+    done = "No.1 " & status1 & vbCr & _
+           "No.2 " & status2 & vbCr & _
+           "No.3 " & status7 & vbCr
+           
+    MsgBox done & vbCr & "OK_execution", vbYes
+    
+End Sub
+
+
+Function OpenBalance1(ByRef path1 As String, ByRef book1 As String, status1)
+
+If Dir(path1 & book1) <> "" Then
+    Range("C5").Value = "OK"
+    Else
+    Range("C5").Value = "none"
+   
+End If
+
+    status1 = Range("C5").Value
+
+End Function
+
+Function OpenBalance2(ByRef path2 As String, ByRef book2 As String, status2)
+
+If Dir(path2 & book2) <> "" Then
+    Range("C9").Value = "OK"
+    Else
+    Range("C9").Value = "none"
+   
+End If
+
+    status2 = Range("C9").Value
+    
+
+End Function
+
+Sub BalanceExe1()
+    
+path1 = Range("C3").Value
+book1 = Range("C4").Value
+path2 = Range("C7").Value
+book2 = Range("C8").Value
+   
+status1 = Range("C5").Value
+status2 = Range("C9").Value
+    
+exe1 = Range("a5").Value
+exe2 = Range("a9").Value
+    
+    Dim rc As String
+    Dim done As String
+    done = "No.1 " & exe1 & vbCr & _
+           "No.2 " & exe2 & vbCr & _
+           "No.3 " & exe7 & vbCr
+           
+    rc = MsgBox(done & vbCr & " TRUE_execution", vbYesNo)
+    
+    If rc = vbNo Then
+       GoTo finish
+    Else
+    End If
+    
+If status1 = "OK" And Range("A5") = True Then
+    Workbooks.Open path1 & book1
+        Call BalanceCopy1(book1)
+End If
+
+If status2 = "OK" And Range("A9") = True Then
+    Workbooks.Open path2 & book2
+        Call BalanceCopy2(book2)
+End If
+
+Exit Sub
+
+finish:
+
+
+End Sub
+
+Public Sub BalanceCopy1(ByRef book1 As String)
+  
+    Workbooks(book1).Activate
+    Worksheets("N").Select
+    Range("B2:B13").Select
+    Selection.Copy
+    
+    Worksheets("J").Select
+    Range("C2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues
+    
+    Workbooks(book1).Save
+    Workbooks(book1).Close
+    
+    
+End Sub
+
+Public Sub BalanceCopy2(ByRef book2 As String)
+  
+    Workbooks(book2).Activate
+    Worksheets("N").Select
+    Range("B2:B13").Select
+    Selection.Copy
+    
+    Worksheets("J").Select
+    Range("C2").Select
+    Selection.PasteSpecial Paste:=xlPasteValues
+    
+    Workbooks(book2).Save
+    Workbooks(book2).Close
+    
+    
+End Sub
+
+
+Sub done_1()
+    
+path1 = Range("C3").Value
+book1 = Range("C4").Value
+status1 = Range("C5").Value
+exe1 = Range("a5").Value
+    
+    Call BalanceCheck
+    
+If status1 = "OK" And Range("A5") = True Then
+    Workbooks.Open path1 & book1
+        Call BalanceCopy1(book1)
+End If
+
+End Sub
+
+
+------------------------------------------------------------
+
+
+
+
+
 Sub balance()
 
 Dim path As String
